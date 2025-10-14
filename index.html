@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Caffynate — Brand‑Focused Social Media & Content Studio in Singapore</title>
-  <meta name="description" content="Caffynate is a brand‑focused social media & content studio in Singapore helping busy business owners with strategy, content creation, posting, and growth—without the overwhelm." />
-  <link rel="canonical" href="https://www.caffynate.com/" />
+  <title>Caffynate — Brand-Focused Social Media & Content Studio in Singapore</title>
+  <meta name="description" content="Caffynate is a brand-focused social media & content studio in Singapore helping busy business owners with strategy, content creation, posting, and growth—without the overwhelm." />
+  <link rel="canonical" href="https://jencaffy.github.io/caffynate-site/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Caffynate — Brand‑Focused Social Media & Content Studio" />
+  <meta property="og:title" content="Caffynate — Brand-Focused Social Media & Content Studio" />
   <meta property="og:description" content="Strategy. Content. Posting. Analytics. Get your brand showing up—consistently and honestly." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.caffynate.com/" />
+  <meta property="og:url" content="https://jencaffy.github.io/caffynate-site/" />
   <meta property="og:image" content="https://www.caffynate.com/og-image.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Caffynate — Brand‑Focused Social Media & Content Studio" />
-  <meta name="twitter:description" content="Singapore‑based studio helping owners plan, create, and post with confidence." />
+  <meta name="twitter:title" content="Caffynate — Brand-Focused Social Media & Content Studio" />
+  <meta name="twitter:description" content="Singapore-based studio helping owners plan, create, and post with confidence." />
   <meta name="twitter:image" content="https://www.caffynate.com/og-image.jpg" />
 
   <style>
@@ -73,7 +73,7 @@
     .choice { background:#fff; border:1px solid #eaeaea; border-radius:12px; padding:10px 12px; }
     .consent { font-size: 14px; color:#444; }
 
-    .footer { padding: 36px 0 60px; color: #555; font-size: 14px; }
+    .footer { padding: 36px 0 60px; color: #555; font-size: 14px; text-align:center; }
     .footer a { color: var(--brand); text-decoration: none; }
 
     @media (max-width: 900px) {
@@ -84,28 +84,6 @@
 
     a:focus, button:focus, input:focus, textarea:focus, select:focus { outline: 3px solid var(--ring); outline-offset: 2px; }
   </style>
-
-  <!-- Schema.org JSON-LD for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Caffynate",
-    "image": "https://www.caffynate.com/og-image.jpg",
-    "url": "https://www.caffynate.com/",
-    "telephone": "",
-    "areaServed": "SG",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "SG"
-    },
-    "description": "Brand‑focused social media & content studio helping busy owners plan, create, and post with consistency.",
-    "sameAs": [
-      "https://www.instagram.com/yourhandle",
-      "https://www.linkedin.com/company/yourcompany"
-    ]
-  }
-  </script>
 </head>
 <body>
   <header>
@@ -197,8 +175,9 @@
         <h2>Tell me where you’re stuck</h2>
         <p class="muted">Share a few details and we’ll reply within one working day.</p>
 
-        <!-- 🔧 Formspree: replace YOUR_FORM_ID below once you create the form at formspree.io -->
-        <form id="enquiry-form" method="POST" action="https://formspree.io/f/xzzjypvq" aria-label="Enquiry form" accept-charset="UTF-8">
+        <!-- Plain HTML POST to Formspree to avoid stuck submissions -->
+        <form method="POST" action="https://formspree.io/f/xzzjypvq" accept-charset="UTF-8" aria-label="Enquiry form">
+          <!-- Honeypot -->
           <input type="text" name="_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
 
           <div class="grid-2">
@@ -224,7 +203,7 @@
           </div>
 
           <div>
-            <label for="website">Website / Instagram</label>
+            <label for="website">Website / Instagram</</label>
             <input id="website" name="website" type="text" placeholder="https://… or @handle" />
           </div>
 
@@ -244,35 +223,14 @@
             <textarea id="pain" name="pain" placeholder="e.g., We keep running out of content ideas and skip posting for weeks…"></textarea>
           </div>
 
-          <div class="grid-2">
-            <div>
-              <label for="budget">Rough monthly budget</label>
-              <select id="budget" name="budget">
-                <option value="">Select</option>
-                <option value="under1500">Under S$1,500</option>
-                <option value="1500-3000">S$1,500 – S$3,000</option>
-                <option value="3000-6000">S$3,000 – S$6,000</option>
-                <option value="6000plus">S$6,000+</option>
-              </select>
-            </div>
-            <div>
-              <label for="contactpref">Preferred contact</label>
-              <select id="contactpref" name="contactpref">
-                <option value="email">Email</option>
-                <option value="whatsapp">WhatsApp</option>
-                <option value="call">Call</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Formspree subject + redirect to thanks page -->
-          <input type="hidden" name="_subject" value="New enquiry via Caffynate.com" />
-          <input type="hidden" name="_redirect" value="https://www.caffynate.com/thanks.html" />
+          <!-- Subject + Redirect to your GitHub Pages thanks page -->
+          <input type="hidden" name="_subject" value="New Enquiry [Caffynate Website]" />
+          <input type="hidden" name="_redirect" value="https://jencaffy.github.io/caffynate-site/thanks.html" />
 
           <label class="consent"><input type="checkbox" name="consent" required /> I consent to Caffynate contacting me about this enquiry. My details will not be shared.</label>
 
           <div>
-            <button class="btn" type="submit" id="submitBtn">Send enquiry</button>
+            <button class="btn" type="submit">Send enquiry</button>
           </div>
 
           <p class="muted" style="font-size:12px">By submitting, you agree we may store your details to respond. No spam, ever.</p>
@@ -290,51 +248,9 @@
   </footer>
 
   <script>
-    // Year in footer only
+    // year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <noscript>This site works without JavaScript. JS is used only for small niceties.</noscript>
-  <script>
-    // Year in footer
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Formspree AJAX submit with inline status message
-    (function(){
-      const form = document.getElementById('enquiry-form');
-      if (!form) return;
-      const status = document.getElementById('form-status');
-      const btn = document.getElementById('submitBtn');
-
-      form.addEventListener('submit', async function(e){
-        // If you keep the default non-AJAX behavior, remove this handler.
-        e.preventDefault();
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-        status.textContent = '';
-
-        const data = new FormData(form);
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
-          if (res.ok) {
-            form.reset();
-            status.textContent = 'Thanks! I\'ll get back to you within one working day.';
-          } else {
-            const j = await res.json().catch(()=>({}));
-            status.textContent = (j && j.errors && j.errors.length) ? j.errors.map(e=>e.message).join(', ') : 'Hmm, something went wrong. Please email jennifer@caffynate.com.';
-          }
-        } catch(err) {
-          status.textContent = 'Network error. Please email jennifer@caffynate.com.';
-        } finally {
-          if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry'; }
-        }
-      });
-    })();
   </script>
   <noscript>This site works without JavaScript. JS is used only for small niceties.</noscript>
 </body>
 </html>
-
-

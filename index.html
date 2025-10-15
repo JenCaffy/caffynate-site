@@ -21,91 +21,125 @@
   <meta name="twitter:image" content="https://www.caffynate.com/og-image.jpg" />
 
   <style>
+    /* ============ THEME ============ */
     :root {
-      --bg: #0b0b0b;
-      --ink: #0e0e0e;
-      --paper: #f7f7f5;
-      --muted: #6b6b6b;
-      --brand: #2d2cf0;
-      --accent: #ffcf6b;
-      --ring: rgba(45,44,240,0.35);
-      --radius: 16px;
+      /* Modern, social-digital palette */
+      --paper: #fafafa;       /* page background */
+      --ink:   #111827;       /* primary text (near-black) */
+      --muted: #6b7280;       /* secondary text (cool gray) */
+      --brand: #6c63ff;       /* electric violet accent */
+      --brand-ink: #2b2b6e;   /* darker brand shade for focus rings */
+      --card:  #ffffff;       /* card background */
+      --ring:  rgba(108, 99, 255, 0.35);
+      --border:#e5e7eb;
+      --radius: 18px;
     }
+
+    * { box-sizing: border-box; }
     html, body { height: 100%; }
-    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: #161616; background: var(--paper); line-height: 1.6; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
     .container { width: min(1120px, 92%); margin: 0 auto; }
-    header { position: sticky; top: 0; backdrop-filter: saturate(180%) blur(8px); background: color-mix(in oklab, var(--paper) 88%, white); border-bottom: 1px solid #eaeaea; z-index: 20; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0;
+      backdrop-filter: saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--paper) 88%, white);
+      border-bottom: 1px solid var(--border);
+      z-index: 20;
+    }
     .nav { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
-    .logo { font-weight: 800; letter-spacing: 0.2px; }
-    .logo b { background: linear-gradient(90deg, var(--brand), #7b5cff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .btn { display:inline-block; padding:12px 18px; border-radius: 999px; background: var(--brand); color:#fff; text-decoration:none; font-weight:700; box-shadow: 0 10px 20px rgba(45,44,240,0.18); }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(45,44,240,0.22); }
+    .logo { display:flex; align-items:center; gap:12px; font-weight: 800; letter-spacing: .2px; color: var(--ink); }
+    .logo b { background: linear-gradient(90deg, var(--brand), #8f87ff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .tagline { font-size: 12px; color: var(--muted); margin-left: 8px; }
+
+    .btn { display:inline-block; padding:12px 18px; border-radius: 999px; background: var(--brand); color:#fff; text-decoration:none; font-weight:700; box-shadow: 0 10px 20px rgba(108,99,255,0.18); }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(108,99,255,0.22); }
     .btn-outline { background: transparent; color: var(--brand); border: 2px solid var(--brand); }
 
+    /* Hero */
     .hero { padding: 72px 0 36px; }
     .eyebrow { color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; }
-    h1 { font-size: clamp(32px, 4vw, 56px); line-height: 1.1; margin: 10px 0 16px; letter-spacing: -0.5px; }
-    .lead { font-size: clamp(16px, 2.1vw, 20px); color:#333; max-width: 800px; }
-    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#fff; border:1px solid #eee; font-size:13px; color:#333; }
+    h1 { font-size: clamp(32px, 4vw, 56px); line-height: 1.1; margin: 10px 0 12px; letter-spacing: -0.5px; }
+    .subtag { font-weight: 600; color: var(--ink); }
+    .lead { font-size: clamp(16px, 2.1vw, 20px); color:#1f2937; max-width: 800px; }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--card); border:1px solid var(--border); font-size:13px; color:#374151; }
     .stack { display:grid; gap: 22px; }
 
+    /* Sections & Cards */
     .section { padding: 48px 0; }
     .grid { display:grid; gap:18px; grid-template-columns: repeat(12, 1fr); }
-    .card { grid-column: span 6; background:#fff; border:1px solid #eee; border-radius: var(--radius); padding:20px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+    .card { grid-column: span 6; background:var(--card); border:1px solid var(--border); border-radius: var(--radius); padding:20px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
     .card h3 { margin-top:0; margin-bottom:6px; }
     .muted { color: var(--muted); }
     .list { padding-left: 18px; margin: 0; }
 
-    .pain { background: #0f0f12; color:#e9e9f0; border-radius: calc(var(--radius) * 1.1); }
-    .pain h2 { color:#fff; }
-    .pain ul { margin: 0; padding-left: 18px; }
-
-    .process { counter-reset: step; }
-    .step { grid-column: span 4; background:#fff; border:1px solid #eee; border-radius: var(--radius); padding:18px; position: relative; }
+    /* Promise section — turn into a light card, not full-width */
+    .promise-wrap { padding: 0 0; }
+    .promise-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) * 1.15);
+      padding: 24px;
+      max-width: 1000px;
+      margin: 0 auto;            /* centers and leaves space on each side */
+      color: var(--ink);          /* darker text for contrast */
+    }
+    .process { counter-reset: step; display:grid; gap:18px; grid-template-columns: repeat(12, 1fr); margin-top: 14px; }
+    .step { grid-column: span 4; background:var(--card); border:1px solid var(--border); border-radius: var(--radius); padding:18px; position: relative; }
     .step:before { counter-increment: step; content: counter(step); position: absolute; top: 12px; right: 12px; font-weight: 800; color: var(--muted); }
 
+    /* Form */
     form { display:grid; gap:14px; }
-    label { font-weight: 700; font-size: 14px; }
-    input[type="text"], input[type="email"], input[type="tel"], textarea, select { width:100%; padding:12px 14px; border-radius: 12px; border:1px solid #d9d9d9; background:#fff; font-size:16px; }
+    label { display:block; font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--ink); }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+      width:100%; padding:12px 14px; border-radius: 12px; border:1px solid var(--border); background:var(--card); font-size:16px; color: var(--ink);
+    }
     textarea { min-height: 120px; }
     .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .choices { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; }
-    .choice { background:#fff; border:1px solid #eaeaea; border-radius:12px; padding:10px 12px; }
-    .consent { font-size: 14px; color:#444; }
-
-    .footer { padding: 36px 0 60px; color: #555; font-size: 14px; text-align:center; }
-    .footer a { color: var(--brand); text-decoration: none; }
-
+    .choices { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:10px; }
+    .choice { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:10px 12px; }
+    .consent { font-size: 14px; color:#374151; }
     @media (max-width: 900px) {
       .card { grid-column: span 12; }
       .step { grid-column: span 12; }
       .grid-2 { grid-template-columns: 1fr; }
     }
 
+    /* Focus styles for accessibility */
     a:focus, button:focus, input:focus, textarea:focus, select:focus { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .footer { padding: 36px 0 60px; color: #555; font-size: 14px; text-align:center; }
+    .footer a { color: var(--brand); text-decoration: none; }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
-      <div class="logo" aria-label="Caffynate logo"><b>Caffynate</b></div>
-      <nav>
-        <a class="btn btn-outline" href="#contact">Enquire</a>
-      </nav>
+      <div class="logo" aria-label="Caffynate logo">
+        <b>Caffynate</b>
+        <span class="tagline">Fueling Ideas. Brewing Campaigns.</span>
+      </div>
+      <a class="btn btn-outline" href="#contact">Enquire</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container stack">
-        <span class="eyebrow">Brand‑focused Social Media · Singapore</span>
+        <span class="eyebrow">Brand-focused Social Media · Singapore</span>
         <h1>Show up with heart.<br/>Grow with consistency.</h1>
-        <p class="lead">Caffynate helps busy owners who are stretched thin—no time to plan, no bandwidth to post, and not sure what to say. We turn your brand story into honest, on‑brand content that ships weekly so you can get back to running the business.</p>
+        <p class="subtag">Fueling Ideas. Brewing Campaigns.</p>
+        <p class="lead">Caffynate helps busy owners who are stretched thin—no time to plan, no bandwidth to post, and not sure what to say. We turn your brand story into honest, on-brand content that ships weekly so you can get back to running the business.</p>
         <div class="stack" style="margin-top:10px">
-          <div class="pill" aria-label="Promise">Less chaos, more clarity. Strategy → Content → Posting → Results.</div>
-          <div>
-            <a class="btn" href="#contact">Tell me where you’re stuck</a>
-          </div>
+          <div class="pill">Less chaos, more clarity. Strategy → Content → Posting → Results.</div>
+          <a class="btn" href="#contact">Tell me where you’re stuck</a>
         </div>
       </div>
     </section>
@@ -114,10 +148,10 @@
       <div class="container grid">
         <article class="card" style="grid-column: span 7;">
           <h2>What we do</h2>
-          <p>We’re a small, hands‑on studio. No fluff, no jargon—just thoughtful content that feels like your brand. Our focus:</p>
+          <p>We’re a small, hands-on studio. No fluff, no jargon—just thoughtful content that feels like your brand. Our focus:</p>
           <ul class="list">
             <li><strong>Content Strategy:</strong> positioning, pillars, and a monthly plan.</li>
-            <li><strong>Creation:</strong> posts, carousels, short‑form video, stories, micro‑blog captions.</li>
+            <li><strong>Creation:</strong> posts, carousels, short-form video, stories, micro-blog captions.</li>
             <li><strong>Publishing:</strong> scheduling, hashtag hygiene, and community responses.</li>
             <li><strong>Optimisation:</strong> analytics, monthly tweaks, and what to double down on.</li>
           </ul>
@@ -135,14 +169,17 @@
       </div>
     </section>
 
-    <section class="section pain">
+    <!-- Promise as a centered card with darker text -->
+    <section class="section promise-wrap">
       <div class="container">
-        <h2>Our promise</h2>
-        <p class="muted" style="color:#cfcfd6">Intimate partnership, clear plans, and content that sounds like you. We keep things simple so you can keep momentum.</p>
-        <div class="grid process" style="margin-top: 14px;">
-          <div class="step"><h3>Clarify</h3><p>We map your brand voice, priorities, and audience pain points. No templates—just a clear, human plan.</p></div>
-          <div class="step"><h3>Create</h3><p>Weekly content crafted for your platforms. Captions, visuals, and edits that respect your brand.</p></div>
-          <div class="step"><h3>Consistently Ship</h3><p>We schedule, post, and learn. You get simple reports and next‑step recommendations.</p></div>
+        <div class="promise-panel">
+          <h2>Our promise</h2>
+          <p class="muted" style="margin-top:-6px">Intimate partnership, clear plans, and content that sounds like you. We keep things simple so you can keep momentum.</p>
+          <div class="process">
+            <div class="step"><h3>Clarify</h3><p>We map your brand voice, priorities, and audience pain points. No templates—just a clear, human plan.</p></div>
+            <div class="step"><h3>Create</h3><p>Weekly content crafted for your platforms. Captions, visuals, and edits that respect your brand.</p></div>
+            <div class="step"><h3>Consistently Ship</h3><p>We schedule, post, and learn. You get simple reports and next-step recommendations.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -151,11 +188,11 @@
       <div class="container">
         <h2>Services</h2>
         <div class="grid">
-          <div class="card"><h3>Monthly Social Management</h3><p>End‑to‑end content calendar, creation, posting, community replies, and monthly reporting.</p></div>
-          <div class="card"><h3>Content Creation</h3><p>Carousels, reels/shorts, story sets, and on‑brand copy. We can work with your existing footage too.</p></div>
+          <div class="card"><h3>Monthly Social Management</h3><p>End-to-end content calendar, creation, posting, community replies, and monthly reporting.</p></div>
+          <div class="card"><h3>Content Creation</h3><p>Carousels, reels/shorts, story sets, and on-brand copy. We can work with your existing footage too.</p></div>
           <div class="card"><h3>Brand Voice & Strategy</h3><p>Messaging playbook, content pillars, and guidelines to keep your team aligned.</p></div>
-          <div class="card"><h3>Campaign & Ad Creative</h3><p>Hooks, scripts, thumbnails, landing pages, and performance‑minded creatives.</p></div>
-          <div class="card"><h3>Website & Landing Copy</h3><p>SEO‑aware copy that feels intimate and converts without the hard sell.</p></div>
+          <div class="card"><h3>Campaign & Ad Creative</h3><p>Hooks, scripts, thumbnails, landing pages, and performance-minded creatives.</p></div>
+          <div class="card"><h3>Website & Landing Copy</h3><p>SEO-aware copy that feels intimate and converts without the hard sell.</p></div>
           <div class="card"><h3>Consult & Upskill</h3><p>Audits, content clinics, and practical templates tailored to your team.</p></div>
         </div>
       </div>
@@ -203,7 +240,7 @@
           </div>
 
           <div>
-            <label for="website">Website / Instagram</</label>
+            <label for="website">Website / Instagram</label>
             <input id="website" name="website" type="text" placeholder="https://… or @handle" />
           </div>
 
@@ -240,15 +277,12 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div><strong>Caffynate</strong> — Brand‑focused social media & content, based in Singapore.</div>
-      <div>Say hello: <a href="mailto:jennifer@caffynate.com">jennifer@caffynate.com</a></div>
-      <div style="margin-top:8px">© <span id="y"></span> Caffynate. All rights reserved.</div>
-    </div>
+    <p><strong>Caffynate</strong> — Brand-focused social media & content, based in Singapore.</p>
+    <p>Say hello: <a href="mailto:jennifer@caffynate.com">jennifer@caffynate.com</a></p>
+    <p>© <span id="y"></span> Caffynate. All rights reserved.</p>
   </footer>
 
   <script>
-    // year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
   <noscript>This site works without JavaScript. JS is used only for small niceties.</noscript>

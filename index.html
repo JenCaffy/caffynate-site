@@ -6,61 +6,70 @@
   <title>Caffynate — Brand-Focused Social Media & Content Studio in Singapore</title>
   <meta name="description" content="Caffynate helps busy owners plan, create and ship honest, on-brand content—without the overwhelm. Fueling Ideas. Brewing Campaigns." />
   <link rel="canonical" href="https://jencaffy.github.io/caffynate-site/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Caffynate — Brand-Focused Social Media & Content Studio" />
-  <meta property="og:description" content="Fueling Ideas. Brewing Campaigns. Strategy, creation, posting and growth for busy owners." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jencaffy.github.io/caffynate-site/" />
-  <meta property="og:image" content="https://jencaffy.github.io/caffynate-site/og-image.jpg" />
-
   <style>
     :root{
-      --paper:#fafafa;
-      --ink:#0a0a0a;
-      --muted:#686868;
-      --border:#e7e7e7;
-      --card:#ffffff;
-      --accent:#f3cc27;    /* bolt yellow */
-      --tint:#fff6cc;      /* pale accent */
-      --ring: rgba(243, 204, 39, .45);
+      --paper:#FAFAFA;
+      --ink:#111111;
+      --muted:#6B7280;
+      --card:#FFFFFF;
+      --border:#E5E7EB;
+      --ring: rgba(17,17,17,.25);
       --radius:18px;
+      --cta:#111111;
+      --cta-hover:#000000;
+      --footer:#1A1A1A;
+      --warm:#F8F5F2; /* warm beige for promise section */
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:var(--ink); background:var(--paper); line-height:1.6}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--ink);background:var(--paper);line-height:1.6}
     .container{width:min(1120px,92%);margin:0 auto}
 
     /* Header */
-    header{position:sticky;top:0;background:color-mix(in oklab, var(--paper) 88%, white);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:20}
+    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);z-index:20}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .logo{display:flex;align-items:center;gap:12px}
-    .logo img{height:34px;width:auto}
-    .tagline{font-size:12px;color:var(--muted);margin-left:8px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,.12);white-space:nowrap}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-outline{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+    .logo img{height:36px;width:auto}
+    .tagline{font-size:13px;color:var(--muted)}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:var(--cta);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,.08);white-space:nowrap;border:2px solid transparent}
+    .btn:hover{transform:translateY(-1px);background:var(--cta-hover)}
 
     /* Hero */
-    .hero{padding:72px 0 36px}
+    .hero{padding:84px 0 48px}
     .eyebrow{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
     h1{font-size:clamp(32px,4vw,56px);line-height:1.1;margin:10px 0 12px;letter-spacing:-.5px}
-    .lead{font-size:clamp(16px,2.1vw,20px);color:#1a1a1a;max-width:800px}
+    .lead{font-size:clamp(16px,2.1vw,20px); color:#1a1a1a; max-width:800px}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--border);font-size:13px;color:#333}
     .stack{display:grid;gap:22px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .cta-row .btn{width:auto}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px} /* added space above hero button */
 
     /* Sections & Cards */
-    .section{padding:48px 0}
+    .section{padding:56px 0}
     .grid{display:grid;gap:18px;grid-template-columns: repeat(12, 1fr)}
     .card{grid-column: span 6;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
-    .card h3{margin:0 0 8px}
     .muted{color:var(--muted)}
     .list{padding-left:18px;margin:0}
+    @media (max-width:900px){.card{grid-column: span 12}}
 
-    /* Promise */
-    .promise .panel{background:var(--tint);border:1px solid var(--border);border-radius:calc(var(--radius)*1.15);padding:24px;max-width:1120px;margin:0 auto;color:var(--ink)}
+    /* Combined section: pain points + how we help */
+    .combo{background:#FFFFFF;border:1px solid var(--border);border-radius:calc(var(--radius)*1.1);box-shadow:0 8px 24px rgba(0,0,0,.04);padding:0;overflow:hidden}
+    .combo .row{display:grid;grid-template-columns: 6fr 6fr}
+    .combo .col{padding:24px 24px 28px}
+    .combo .col + .col{border-left:1px solid var(--border)}
+    .combo h2{margin:0 0 8px}
+    .combo .tag{display:inline-block;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+    .chips{display:grid;grid-template-columns: 1fr; gap:12px; margin-top:10px}
+    .chip{background:#F9FAFB;border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+    @media (max-width:900px){
+      .combo .row{grid-template-columns: 1fr}
+      .combo .col + .col{border-left:none;border-top:1px solid var(--border)}
+    }
+
+    /* Promise (warm background for depth) */
+    .promise{background:var(--warm)}
+    .promise .panel{background:#fff;border:1px solid var(--border);border-radius:calc(var(--radius)*1.15);padding:24px;max-width:1120px;margin:0 auto;box-shadow:0 10px 30px rgba(0,0,0,.08);color:var(--ink)}
     .process{counter-reset:step;display:grid;gap:18px;grid-template-columns: repeat(12, 1fr);margin-top:14px}
     .step{grid-column: span 4;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;position:relative}
     .step:before{counter-increment:step;content:counter(step);position:absolute;top:12px;right:12px;font-weight:800;color:var(--muted)}
@@ -71,7 +80,7 @@
     .service .details{margin:.4rem 0 0;color:#444}
 
     /* Contact/Form */
-    #contact.section{background:#f2f2f2;border-top:1px solid var(--border)}
+    #contact.section{background:#FFFFFF;border-top:1px solid var(--border)}
     form{display:grid;gap:14px}
     label{display:block;font-weight:700;font-size:14px;margin-bottom:6px;color:var(--ink)}
     input[type="text"],input[type="email"],input[type="tel"],textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;font-size:16px;color:var(--ink)}
@@ -80,62 +89,60 @@
     fieldset.choices{display:grid;grid-template-columns: repeat(auto-fit, minmax(220px,1fr));gap:10px;border:0;padding:0;margin:0}
     .choice{background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px 12px}
     .consent{font-size:14px;color:#333}
-    @media (max-width:900px){.card{grid-column: span 12}.step{grid-column: span 12}.grid-2{grid-template-columns:1fr}}
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
 
     a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--ring);outline-offset:2px}
-    .footer{padding:36px 0 60px;color:#555;font-size:14px;text-align:center}
-    .footer a{color:inherit;text-decoration:underline}
+
+    /* Footer */
+    .footer{background:var(--footer);color:#fff;text-align:center;padding:40px 0;margin-top:0}
+    .footer a{color:#fff;text-decoration:underline}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <img src="caffynate-logo.png" alt="Caffynate logo (black)" />
-        <span class="tagline">Fueling Ideas. Brewing Campaigns.</span>
-      </div>
-      <a class="btn btn-outline" href="#contact">Enquire</a>
+  <header class="container nav">
+    <div class="logo">
+      <img src="caffynate-logo.png" alt="Caffynate logo">
     </div>
+    <div class="tagline">Fueling Ideas. Brewing Campaigns.</div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="container stack">
         <span class="eyebrow">Brand‑focused Social Media · Singapore</span>
         <h1>Show up with heart.<br/>Grow with consistency.</h1>
-        <p class="lead">We help busy owners who are stretched thin—no time to plan, no bandwidth to post, and not sure what to say. We turn your story into honest, on‑brand content that ships weekly, so you can get back to running the business.</p>
+        <p class="lead">We’re a small, hands‑on studio with thoughtful content that sounds like your brand. We help business owners find their voice, show up online, and keep momentum through content that feels honest, confident, and true to your story.</p>
+        <div class="pill">Simple, on‑brand content → shipped weekly → with clear next steps. No fluff, no stress.</div>
         <div class="cta-row">
           <a class="btn" href="#contact">Tell me where you’re stuck</a>
         </div>
       </div>
     </section>
 
+    <!-- Pain points + How we help -->
     <section class="section">
-      <div class="container grid">
-        <article class="card" style="grid-column: span 7;">
-          <h2>What we do</h2>
-          <p>We’re a small, hands‑on studio. No fluff—just thoughtful content that sounds like your brand.</p>
-          <ul class="list">
-            <li><strong>Content Strategy:</strong> positioning, pillars, and a monthly plan.</li>
-            <li><strong>Creation:</strong> posts, carousels, short‑form video, stories, captions.</li>
-            <li><strong>Publishing:</strong> scheduling, hashtag hygiene, and community replies.</li>
-            <li><strong>Optimisation:</strong> analytics, monthly tweaks, and what to double down on.</li>
-          </ul>
-        </article>
-        <aside class="card" style="grid-column: span 5;">
-          <h3>If this sounds like you…</h3>
-          <ul class="list">
-            <li>“I know what we stand for—but I can’t find the words.”</li>
-            <li>“We start strong then fall off posting.”</li>
-            <li>“I’m doing everything. Marketing keeps slipping.”</li>
-            <li>“We have assets, but nothing feels cohesive.”</li>
-            <li>“I want results without sounding salesy.”</li>
-          </ul>
-        </aside>
+      <div class="container combo">
+        <div class="row">
+          <div class="col">
+            <span class="tag">If this sounds like you</span>
+            <div class="chips">
+              <div class="chip">You’re juggling everything and can’t keep up with posting.</div>
+              <div class="chip">You know your value but can’t find the right words or visuals.</div>
+              <div class="chip">You have content, but nothing feels cohesive or strategic.</div>
+              <div class="chip">You want results without sounding salesy.</div>
+            </div>
+          </div>
+          <div class="col">
+            <span class="tag">What we do</span>
+            <h2>How we help</h2>
+            <p>We help business owners show up consistently on social — planning, creating, and posting on‑brand content each week so you grow without the overwhelm.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Promise -->
+    <!-- Our Promise (warm) -->
     <section class="section promise">
       <div class="container">
         <div class="panel">
@@ -150,9 +157,11 @@
       </div>
     </section>
 
+    <!-- Services -->
     <section class="section" id="services">
       <div class="container">
         <h2>Services</h2>
+        <p class="muted" style="margin-top:-6px">From branding & logo design to social content and monthly management, we build and sustain your brand presence.</p>
         <div class="grid">
           <div class="card service">
             <h3>Monthly Social Management</h3>
@@ -178,6 +187,7 @@
       </div>
     </section>
 
+    <!-- FAQs -->
     <section class="section" id="faq">
       <div class="container">
         <h2>FAQs</h2>
@@ -187,7 +197,7 @@
       </div>
     </section>
 
-    <!-- Contact with distinct background -->
+    <!-- Contact -->
     <section class="section" id="contact">
       <div class="container">
         <h2>Tell me where you’re stuck</h2>

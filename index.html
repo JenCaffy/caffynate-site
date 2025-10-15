@@ -15,25 +15,20 @@
   <meta property="og:image" content="https://jencaffy.github.io/caffynate-site/og-image.jpg" />
 
   <style>
-    /* ================= THEME (monochrome with bolt accent) ================= */
     :root{
-      --paper:#fafafa;          /* page background */
-      --ink:#0a0a0a;            /* near-black text */
-      --muted:#686868;          /* secondary text */
-      --border:#e7e7e7;         /* light border */
-      --card:#ffffff;           /* card bg */
-      --accent:#f3cc27;         /* bolt yellow (matches ⚡ vibe) */
-      --accent-ink:#6a5500;     /* dark text on accent tints */
-      --tint:#fff6cc;           /* pale accent tint */
+      --paper:#fafafa;
+      --ink:#0a0a0a;
+      --muted:#686868;
+      --border:#e7e7e7;
+      --card:#ffffff;
+      --accent:#f3cc27;    /* bolt yellow */
+      --tint:#fff6cc;      /* pale accent */
       --ring: rgba(243, 204, 39, .45);
       --radius:18px;
-      --container:max(92%, min(1120px, 92%));
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:var(--ink); background:var(--paper); line-height:1.6}
-
     .container{width:min(1120px,92%);margin:0 auto}
 
     /* Header */
@@ -42,7 +37,6 @@
     .logo{display:flex;align-items:center;gap:12px}
     .logo img{height:34px;width:auto}
     .tagline{font-size:12px;color:var(--muted);margin-left:8px}
-
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,.12);white-space:nowrap}
     .btn:hover{transform:translateY(-1px)}
     .btn-outline{background:transparent;color:var(--ink);border:2px solid var(--ink)}
@@ -55,17 +49,17 @@
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--border);font-size:13px;color:#333}
     .stack{display:grid;gap:22px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .cta-row .btn{width:auto} /* prevent full-width stretch on mobile */
+    .cta-row .btn{width:auto}
 
     /* Sections & Cards */
     .section{padding:48px 0}
     .grid{display:grid;gap:18px;grid-template-columns: repeat(12, 1fr)}
     .card{grid-column: span 6;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
-    .card h3{margin:0 0 6px}
+    .card h3{margin:0 0 8px}
     .muted{color:var(--muted)}
     .list{padding-left:18px;margin:0}
 
-    /* "Our promise" — matching width/alignment with services */
+    /* Promise */
     .promise .panel{background:var(--tint);border:1px solid var(--border);border-radius:calc(var(--radius)*1.15);padding:24px;max-width:1120px;margin:0 auto;color:var(--ink)}
     .process{counter-reset:step;display:grid;gap:18px;grid-template-columns: repeat(12, 1fr);margin-top:14px}
     .step{grid-column: span 4;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;position:relative}
@@ -74,8 +68,9 @@
     /* Services cards */
     .service p{margin:.25rem 0 0;color:#2b2b2b}
     .service small{display:block;color:var(--muted)}
+    .service .details{margin:.4rem 0 0;color:#444}
 
-    /* Form */
+    /* Contact/Form */
     #contact.section{background:#f2f2f2;border-top:1px solid var(--border)}
     form{display:grid;gap:14px}
     label{display:block;font-weight:700;font-size:14px;margin-bottom:6px;color:var(--ink)}
@@ -87,7 +82,6 @@
     .consent{font-size:14px;color:#333}
     @media (max-width:900px){.card{grid-column: span 12}.step{grid-column: span 12}.grid-2{grid-template-columns:1fr}}
 
-    /* Focus */
     a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--ring);outline-offset:2px}
     .footer{padding:36px 0 60px;color:#555;font-size:14px;text-align:center}
     .footer a{color:inherit;text-decoration:underline}
@@ -141,7 +135,7 @@
       </div>
     </section>
 
-    <!-- Promise panel aligned to services width and darker text -->
+    <!-- Promise -->
     <section class="section promise">
       <div class="container">
         <div class="panel">
@@ -162,19 +156,23 @@
         <div class="grid">
           <div class="card service">
             <h3>Monthly Social Management</h3>
-            <p>For owners who want consistent posting off your plate—end‑to‑end, done right.</p>
+            <small>For owners who want consistent posting off your plate—end‑to‑end, done right.</small>
+            <p class="details">End‑to‑end content calendar, creation, posting, community replies, and monthly reporting.</p>
           </div>
           <div class="card service">
             <h3>Content Creation</h3>
-            <p>For teams with in‑house marketing who need more on‑brand posts, reels, and visuals.</p>
+            <small>For teams with in‑house marketing who need more on‑brand posts, reels, and visuals.</small>
+            <p class="details">Carousels, reels/shorts, story sets, and on‑brand copy. We can work with your existing footage too.</p>
           </div>
           <div class="card service">
             <h3>Brand Voice, Strategy & Campaign Creative</h3>
-            <p>For brands that need a cohesive voice and high‑impact creative for launches and promos.</p>
+            <small>For brands that need a cohesive voice and high‑impact creative for launches and promos.</small>
+            <p class="details">Messaging playbook, content pillars, guidelines, hooks, scripts, thumbnails, and campaign concepts.</p>
           </div>
           <div class="card service">
             <h3>Branding, Identity & Website</h3>
-            <p>For new or refreshing businesses—logos, visual identity, brand kits, and simple websites.</p>
+            <small>For new or refreshing businesses—logos, identity, brand kits, and simple websites.</small>
+            <p class="details">Logo design, visual system, brand kit, templates, landing pages, and lightweight sites to get you live fast.</p>
           </div>
         </div>
       </div>
@@ -220,20 +218,16 @@
             </div>
           </div>
 
-          <div>
-            <label for="website">Website / Instagram</label>
-            <input id="website" name="website" type="text" placeholder="https://… or @handle" />
-          </div>
-
           <fieldset class="choices">
             <legend style="font-weight:700">What do you need help with?</legend>
-            <label class="choice"><input type="checkbox" name="need[]" value="strategy" /> Content strategy & pillars</label>
+            <label class="choice"><input type="checkbox" name="need[]" value="strategy" /> Brand voice & content strategy</label>
             <label class="choice"><input type="checkbox" name="need[]" value="calendar" /> Monthly calendar & posting</label>
             <label class="choice"><input type="checkbox" name="need[]" value="creation" /> Content creation (posts/reels)</label>
             <label class="choice"><input type="checkbox" name="need[]" value="copy" /> Copywriting & captions</label>
             <label class="choice"><input type="checkbox" name="need[]" value="ads" /> Campaign/ad creative</label>
-            <label class="choice"><input type="checkbox" name="need[]" value="website" /> Website/landing</label>
-            <label class="choice"><input type="checkbox" name="need[]" value="consult" /> Consult / audit</label>
+            <label class="choice"><input type="checkbox" name="need[]" value="newbiz" /> New business launch (logo, brand kit, simple site)</label>
+            <label class="choice"><input type="checkbox" name="need[]" value="refresh" /> Brand refresh</label>
+            <label class="choice"><input type="checkbox" name="need[]" value="custom" /> Not sure / custom package</label>
           </fieldset>
 
           <div>
@@ -262,9 +256,7 @@
     <p>© <span id="y"></span> Caffynate. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   <noscript>This site works without JavaScript. JS is used only for small niceties.</noscript>
 </body>
 </html>

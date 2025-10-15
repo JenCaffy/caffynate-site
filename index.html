@@ -43,14 +43,13 @@
     .lead{font-size:clamp(16px,2.1vw,20px); color:#1a1a1a; max-width:800px}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--border);font-size:13px;color:#333}
     .stack{display:grid;gap:22px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px} /* added space above hero button */
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px} /* space above hero button */
 
     /* Sections & Cards */
     .section{padding:56px 0}
     .grid{display:grid;gap:18px;grid-template-columns: repeat(12, 1fr)}
     .card{grid-column: span 6;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
     .muted{color:var(--muted)}
-    .list{padding-left:18px;margin:0}
     @media (max-width:900px){.card{grid-column: span 12}}
 
     /* Combined section: pain points + how we help */
@@ -67,12 +66,17 @@
       .combo .col + .col{border-left:none;border-top:1px solid var(--border)}
     }
 
-    /* Promise (warm background for depth) */
+    /* Our Promise (warm background for depth) */
     .promise{background:var(--warm)}
     .promise .panel{background:#fff;border:1px solid var(--border);border-radius:calc(var(--radius)*1.15);padding:24px;max-width:1120px;margin:0 auto;box-shadow:0 10px 30px rgba(0,0,0,.08);color:var(--ink)}
     .process{counter-reset:step;display:grid;gap:18px;grid-template-columns: repeat(12, 1fr);margin-top:14px}
     .step{grid-column: span 4;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;position:relative}
     .step:before{counter-increment:step;content:counter(step);position:absolute;top:12px;right:12px;font-weight:800;color:var(--muted)}
+    /* Mobile stacking for Our Promise */
+    @media (max-width: 900px){
+      .process{grid-template-columns: 1fr;}
+      .step{grid-column: span 12;}
+    }
 
     /* Services cards */
     .service p{margin:.25rem 0 0;color:#2b2b2b}
